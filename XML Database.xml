@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library[
+  
+  <!-- library is the root element of the document -->
+  <!ELEMENT library (books+,publishers+,members*,issue_returns*)>
+  
+  <!ELEMENT books (book+)>
+  <!ELEMENT members (member*)>
+  <!ELEMENT publishers (publisher+)>
+  <!ELEMENT issue_returns (issue_return*)>
+  
+  <!ELEMENT book (title?, author+, year?)>
+  
+  <!ATTLIST book isbn ID #REQUIRED>
+  <!-- book has a required isbn attribute which is a unique identifier -->
+
+  <!ATTLIST book price CDATA #IMPLIED>
+  <!-- book has an optional (#IMPLIED) price attribute which contains character data -->
+  
+  <!ATTLIST book pub_id IDREF #REQUIRED>
+  <!-- book has a required pub_id attribute which refer to unique identifier p_id of publisher element-->
+  
+  <!ATTLIST book category CDATA #IMPLIED>
+   <!-- book has an optional (#IMPLIED) category attribute which contains character data -->
+   
+  <!ATTLIST book copies CDATA #REQUIRED>
+  <!-- book has a required copies attribute which contains character data -->
+  
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT author (#PCDATA)>
+  <!ELEMENT year (#PCDATA)>
+
+  <!ELEMENT member (name?, address+, phone_no+)>
+  
+  <!ATTLIST member m_id ID #REQUIRED>
+  <!-- member has a required m_id attribute which is a unique identifier -->
+  
+  <!ATTLIST member m_start CDATA #REQUIRED>
+  <!-- member has a required m_start attribute which has character data -->
+  
+  <!ATTLIST member m_expire CDATA #REQUIRED>
+  <!-- member has a required m_expire attribute which has character data -->
+  
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT address (#PCDATA)>
+  <!ELEMENT phone_no (#PCDATA)>
+  
+  <!ELEMENT publisher (p_name?, p_address+, p_phone_no+)>
+  
+  <!ATTLIST publisher p_id ID #REQUIRED>
+  <!-- publisher has a required p_id attribute which is a unique identifier -->
+  
+  <!ELEMENT p_name (#PCDATA)>
+  <!ELEMENT p_address (#PCDATA)>
+  <!ELEMENT p_phone_no (#PCDATA)>
+  
+  <!ELEMENT issue_return (issue_dt?, due_dt?, return_dt?)>
+  
+  <!ATTLIST issue_return bid IDREF #REQUIRED>
+  <!-- issue_return has a required bid attribute which refer to unique identifier isbn of book element-->
+   
+  <!ATTLIST issue_return mid IDREF #REQUIRED>
+  <!-- issue_return has a required mid attribute which refer to unique identifier p_id of publisher element-->
+  
+  <!ELEMENT issue_dt (#PCDATA)>
+  <!ELEMENT due_dt (#PCDATA)>
+  <!ELEMENT return_dt (#PCDATA)>
+]>
+<library>
+
+  <books>
+  
+    <book isbn="CS202090" price="900.00" pub_id="P2090129" category="Computer Science" copies="9">
+      <title>Database Management System</title>
+      <author>Raghu ramakrishnan</author>
+      <author>Johannes gehrke</author>
+      <year>2008</year>
+    </book>
+    
+    <book isbn="MS201980" price="1012.00" pub_id="P2090129" category="Mathematics" copies="30">
+      <title>Discrete Mathematics</title>
+      <author>Kenneth H. Rosen</author>
+      <year>2009</year>
+    </book>
+    
+    <book isbn="CS202000" price="1500.00" pub_id="P3080768" category="Computer Science" copies="15">
+      <title>Java Language Specification</title>
+      <author>James Gosling</author>
+      <author>Bill Joy</author>
+      <author>Guy Steele</author>
+      <author>Gilad Bracha</author>
+      <author>Alex Buckley</author>
+      <year>2009</year>
+    </book>
+    
+    <book isbn="CS202027" price="880.00" pub_id="P2090129" category="Computer Science" copies="25">
+      <title>Database Management System</title>
+      <author>Ramez Elmasri</author>
+      <author>Shamkant B. Navathe</author>
+      <year>2008</year>
+    </book>
+    
+    <book isbn="MS201956" price="1900.00" pub_id="P8923456" category="Mathematics" copies="15">
+      <title>Linear Algebra</title>
+      <author>David C. Lay</author>
+      <author>Steven R. Lay</author>
+      <author>Judi J. McDonald</author>
+      <year>2007</year>
+    </book>
+    
+  </books>
+  
+  <publishers>
+  
+    <publisher p_id="P2090129">
+      <p_name>Pearson</p_name>
+      <p_address>15th Floor World Trade Tower,Sector 16,Noida</p_address>
+      <p_phone_no>9987657582</p_phone_no>
+    </publisher>
+    
+    <publisher p_id="P3080768">
+      <p_name>Oracle</p_name>
+      <p_address>38/2Ka, 3rd Floor, Mannan Market, Banglabazar</p_address>
+      <p_phone_no>8988765235</p_phone_no>
+    </publisher>
+    
+    <publisher p_id="P8923456">
+      <p_name>Mcgraw hill</p_name>
+      <p_address>B-4, B Block, Sector 63, Noida, Uttar Pradesh</p_address>
+      <p_phone_no>9010238745</p_phone_no>
+    </publisher>
+    
+  </publishers>
+  
+  <members>
+  
+    <member m_id="M20200040" m_start="2020-01-12" m_expire="2025-01-12">
+      <name>Ritu</name>
+      <address>A block Janakpuri</address>
+      <phone_no>9126428901</phone_no>
+    </member>
+    
+    <member m_id="M20190130" m_start="2019-08-30" m_expire="2024-08-30">
+      <name>Harsh</name>
+      <address>C block Uttam Nagar</address>
+      <phone_no>9753142655</phone_no>
+    </member>
+    
+    <member m_id="M20200060" m_start="2020-11-13" m_expire="2025-11-13">
+      <name>Mohan</name>
+      <address>A block Noida</address>
+      <phone_no>9871226321</phone_no>
+    </member>
+    
+    <member m_id="M20190280" m_start="2019-01-18" m_expire="2024-01-18">
+      <name>Sonal</name>
+      <address>Sangam Appartments, Pitampura</address>
+      <phone_no>8976655121</phone_no>
+    </member>
+    
+    <member m_id="M20180100" m_start="2018-12-09" m_expire="2023-12-09">
+      <name>Tanu</name>
+      <address>G 5/7 Vasant kunj</address>
+      <phone_no>9025279807</phone_no>
+    </member>
+    
+  </members>
+    
+  <issue_returns>  
+  
+    <issue_return bid="CS202000" mid="M20190130">
+      <issue_dt>2018-10-28</issue_dt>
+      <due_dt>2018-11-28</due_dt>
+      <return_dt>2018-11-18</return_dt>
+    </issue_return>
+    
+    <issue_return bid="MS201956" mid="M20200040">
+      <issue_dt>2020-02-27</issue_dt>
+      <due_dt>2020-03-28</due_dt>
+      <return_dt>2020-04-03</return_dt>
+    </issue_return>
+    
+    <issue_return bid="MS201980" mid="M20200060">
+      <issue_dt>2018-12-17</issue_dt>
+      <due_dt>2019-01-16</due_dt>
+    </issue_return>
+    
+    <issue_return bid="CS202090" mid="M20200040">
+      <issue_dt>2020-02-11</issue_dt>
+      <due_dt>2020-03-11</due_dt>
+    </issue_return>
+    
+ </issue_returns>
+ 
+</library>
